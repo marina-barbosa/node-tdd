@@ -1,9 +1,9 @@
 const request = require('supertest');
 const app = require('../../src/app');
 
-// test.skip('deve... 
+// test.skip('deve...
 // test.todo('deve...
-// test.only('deve... 
+// test.only('deve...
 
 test('deve listar todos os users', () => {
 	return request(app)
@@ -18,17 +18,17 @@ test('deve listar todos os users', () => {
 });
 
 test('deve inserir user com sucesso', () => {
-  const email = `${Date.now()}@gmail.com`;
+	const email = `${Date.now()}@gmail.com`;
 	return request(app)
 		.post('/api/users')
 		.send({
 			name: 'Jest',
 			email,
-      password: '123456Bb*'
+			password: '123456Bb*',
 		})
 		.then((response) => {
 			expect(response.status).toBe(201);
-      const user = response.body[0];
+			const user = response.body[0];
 			expect(user).toHaveProperty('name', 'Jest');
 			expect(user).toHaveProperty('email', email);
 		});

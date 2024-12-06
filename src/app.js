@@ -1,9 +1,8 @@
 const dotenv = require('dotenv');
 const express = require('express');
-const knex = require('knex');
-const knexConfig = require('./config/knexfile');
 const routes = require('./routes');
 const errorHandler = require('./middleware/errorHandler');
+const database = require('./config/database');
 
 dotenv.config();
 
@@ -17,5 +16,11 @@ app.use(routes);
 
 // Error handling middleware
 app.use(errorHandler);
+
+// log database sql
+database
+	.on('query', (query) => console.log(query.sql))
+	.on('query-response', (result) => console.log(result))
+	.on('query-error', (error) => console.error(error));
 
 module.exports = app;
