@@ -1,0 +1,6 @@
+		
+Cria migration
+    "migrate:make": "knex --knexfile src/config/knexfile.js migrate:make",
+    
+Executa migrations
+		"migrate:latest": "knex --knexfile src/config/knexfile.js migrate:latest",

@@ -4,7 +4,7 @@ https://medium.com/@danielangelesangelestoribio/configure-biome-for-t3-app-remov
 
 npx @biomejs/biome init
 
-npx @biomejs/biome format <files> --write
+npx @biomejs/biome format <files> --write 
 npx @biomejs/biome lint <files>
 npx @biomejs/biome check --write
 
