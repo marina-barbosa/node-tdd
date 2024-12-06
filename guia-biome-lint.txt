@@ -1,12 +1,12 @@
-npm install --save-dev rome
-
-npx rome init
+https://medium.com/@danielangelesangelestoribio/configure-biome-for-t3-app-removing-prettier-and-eslint-da4f6c9ae853
 
 "editor.defaultFormatter": "biomejs.biome",
 
-npx rome check .
+npx @biomejs/biome init
 
-npx rome format .
+npx @biomejs/biome format <files> --write
+npx @biomejs/biome lint <files>
+npx @biomejs/biome check --write
 
 
 
