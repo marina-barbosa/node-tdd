@@ -1,19 +1,9 @@
-const findAll = (_, res) => {
-	res.status(200).json([
-		{
-			name: 'Isaac Doe',
-			email: 'isaaclovehortencia@gmail.com',
-		},
-		{
-			name: 'Hortência Flores',
-			email: 'hortencia@gmail.com',
-		},
-	]);
-};
+const express = require('express');
+const { findAll, create } = require('../domains/user/user.controller');
 
-const create = (req, res) => {
-	const { name, email } = req.body;
-	res.status(201).json({ name, email });
-};
+const router = express.Router();
 
-module.exports = { findAll, create };
+router.get('/', findAll);
+router.post('/', create);
+
+module.exports = router;

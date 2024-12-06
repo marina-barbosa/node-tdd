@@ -1,30 +1,25 @@
 const dotenv = require('dotenv');
 const express = require('express');
-const app = express();
+const knex = require('knex');
+const knexConfig = require('./config/knexfile');
+const routes = require('./routes');
+const errorHandler = require('./middleware/errorHandler');
 
 dotenv.config();
+
+const app = express();
+
+// Database connection
+const db = knex(knexConfig[process.env.NODE_ENV || 'development']);
+app.locals.db = db;
+
+// Middlewares
 app.use(express.json());
 
-app.get('/', (_, res) => {
-	res.status(200).send('Hello World!');
-});
+// Routes
+app.use(routes);
 
-app.get('/users', (_, res) => {
-	res.status(200).json([
-		{
-			name: 'Isaac Doe',
-			email: 'isaaclovehortencia@gmail.com',
-		},
-		{
-			name: 'Hortência Flores',
-			email: 'hortencia@gmail.com',
-		},
-	]);
-});
-
-app.post('/users', (req, res) => {
-	const { name, email } = req.body;
-	res.status(201).json({ name, email });
-});
+// Error handling middleware
+app.use(errorHandler);
 
 module.exports = app;

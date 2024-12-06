@@ -3,5 +3,5 @@ const app = require('./app');
 const PORT = process.env.PORT || 3333;
 
 app.listen(PORT, () => {
-	console.log(`Server rodando no http://localhost:${PORT}`);
+	console.log(`🎉 Server rodando no http://localhost:${PORT} 🎈`);
 });
