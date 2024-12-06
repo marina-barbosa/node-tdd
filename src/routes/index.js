@@ -7,6 +7,6 @@ router.get('/', (_, res) => {
 	res.status(200).send('Hello World!');
 });
 
-router.use('/users', userRoutes);
+router.use('/api/users', userRoutes);
 
 module.exports = router;

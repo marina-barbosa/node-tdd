@@ -9,10 +9,6 @@ dotenv.config();
 
 const app = express();
 
-// Database connection
-const db = knex(knexConfig[process.env.NODE_ENV || 'development']);
-app.locals.db = db;
-
 // Middlewares
 app.use(express.json());
 
