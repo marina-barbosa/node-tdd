@@ -11,8 +11,8 @@ const findAll = async (_, res, next) => {
 
 const create = async (req, res, next) => {
 	try {
-		const { name, email } = req.body;
-		const newUser = await userService.createUser({ name, email });
+		const { name, email, password } = req.body;
+		const newUser = await userService.createUser({ name, email, password });
 		res.status(201).json(newUser);
 	} catch (err) {
 		next(err);
