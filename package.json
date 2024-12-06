@@ -4,6 +4,7 @@
 	"main": "index.js",
 	"scripts": {
 		"test": "jest",
+    "dev": "nodemon src/server.js",
 		"bformat": "npx @biomejs/biome format --write",
 		"blint": "biome lint ./src",
 		"check": "npx @biomejs/biome check --write"
