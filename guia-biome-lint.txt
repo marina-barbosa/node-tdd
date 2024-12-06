@@ -1,0 +1,30 @@
+npm install --save-dev rome
+
+npx rome init
+
+"editor.defaultFormatter": "biomejs.biome",
+
+npx rome check .
+
+npx rome format .
+
+
+
+
+
+
+{
+	"$schema": "https://docs.rome.tools/schemas/12.1.3/schema.json",
+	"organizeImports": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true
+		}
+	},
+  "formatter": {
+    "enabled": true
+  }
+}

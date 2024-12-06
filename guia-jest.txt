@@ -1,0 +1,3 @@
+
+
+npm install -D jest@23.6.0 -E
