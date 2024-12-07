@@ -1,11 +1,11 @@
 const dotenv = require('dotenv');
 const express = require('express');
 const routes = require('./routes');
-const errorHandler = require('./middleware/errorHandler');
+// const errorHandler = require('./middleware/errorHandler');
 const database = require('./config/database');
 const corsMiddleware = require('./middleware/corsMiddleware');
 const loggerMiddleware = require('./middleware/loggerMiddleware');
-// const logger = require('./config/logger');
+const errorHandler = require('./errors/errorHandler');
 
 dotenv.config();
 
