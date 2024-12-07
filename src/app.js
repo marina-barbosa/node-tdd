@@ -17,10 +17,10 @@ app.use(routes);
 // Error handling middleware
 app.use(errorHandler);
 
-// log database sql
-database
-	.on('query', (query) => console.log(query.sql))
-	.on('query-response', (result) => console.log(result))
-	.on('query-error', (error) => console.error(error));
+// log database sql, ativar só quando for necessario, pois polui muito o terminal
+// database
+// 	.on('query', (query) => console.log(query.sql))
+// 	.on('query-response', (result) => console.log(result))
+// 	.on('query-error', (error) => console.error(error));
 
 module.exports = app;
