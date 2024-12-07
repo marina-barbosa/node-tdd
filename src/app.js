@@ -4,6 +4,8 @@ const routes = require('./routes');
 const errorHandler = require('./middleware/errorHandler');
 const database = require('./config/database');
 const corsMiddleware = require('./middleware/corsMiddleware');
+const loggerMiddleware = require('./middleware/loggerMiddleware');
+// const logger = require('./config/logger');
 
 dotenv.config();
 
@@ -12,6 +14,8 @@ const app = express();
 // CORS
 app.use(corsMiddleware);
 
+// Middleware global de logging
+app.use(loggerMiddleware);
 
 app.use(express.json());
 
