@@ -1,5 +1,6 @@
 const userService = require('./user.service');
 
+
 const findAll = async (_, res, next) => {
 	try {
 		const users = await userService.getAllUsers();
@@ -13,9 +14,6 @@ const create = async (req, res, next) => {
 	try {
 		const { name, email, password } = req.body;
 		const newUser = await userService.createUser({ name, email, password });
-		if (newUser.error) {
-			return res.status(400).json({ error: newUser.error });
-		}
 		res.status(201).json(newUser);
 	} catch (err) {
 		next(err);
